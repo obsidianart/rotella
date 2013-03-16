@@ -1,0 +1,23 @@
+{
+  "name": "rotella",
+  "title": "Rotella",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/obsidianart/rotella",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/obsidianart/rotella"
+  },
+  "bugs": "https://github.com/obsidianart/rotella/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/obsidianart/rotella/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}
