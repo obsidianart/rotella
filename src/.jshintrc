@@ -8,8 +8,16 @@
   "sub": true,
   "undef": true,
   "unused": true,
-  "boss": true,
-  "eqnull": true,
-  "browser": true,
-  "predef": ["jQuery"]
+  "predef": ["jQuery"],
+
+  "validthis": true,
+  "laxcomma" : true,
+  "laxbreak" : true,
+  "browser"  : true,
+  "eqnull"   : true,
+  "debug"    : true,
+  "devel"    : true,
+  "boss"     : true,
+  "expr"     : true,
+  "asi"      : true
 }
