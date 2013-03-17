@@ -1,38 +1,110 @@
 /*
- * rotella
- * https://github.com/obsidianart/rotella
- *
- * Copyright (c) 2013 Cesare Naldi, Stefano Solinas
- * Licensed under the MIT license.
- */
+* rotella v0.1
+* https://github.com/obsidianart/rotella
+*
+*
+* Copyright (c) 2013 Cesare Naldi, Stefano Solinas
+* Licensed under the MIT license.
+*/
 
-(function($) {
+!function ($) {
 
-  // Collection method.
-  $.fn.awesome = function() {
-    return this.each(function(i) {
-      // Do something awesome to each selected element.
-      $(this).html('awesome' + i);
-    });
-  };
+	"use strict"; // jshint ;_;
 
-  // Static method.
-  $.awesome = function(options) {
-    // Override default options with passed-in options.
-    options = $.extend({}, $.awesome.options, options);
-    // Return something awesome.
-    return 'awesome' + options.punctuation;
-  };
 
-  // Static method default options.
-  $.awesome.options = {
-    punctuation: '.'
-  };
+	/* ROTELLA PUBLIC CLASS DEFINITION
+	* =============================== */
 
-  // Custom selector.
-  $.expr[':'].awesome = function(elem) {
-    // Is this element awesome?
-    return $(elem).text().indexOf('awesome') !== -1;
-  };
+	var Rotella = function (element, options) {
+		this.init('rotella', element, options)
+	}
 
-}(jQuery));
+	Rotella.prototype = {
+
+		constructor: Rotella
+
+		, init: function (type, element, options) {
+			var i
+
+			this.type = type
+			this.$element = $(element)
+			this.options = this.getOptions(options)
+			this.timer;
+		}
+
+		, getOptions: function (options) {
+			options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
+	  		return options
+		}
+
+		, goTo: function (percent){
+			//TODO:check if time or percent
+			var isPercent = true
+
+
+			if (isPercent) {
+
+			}
+		}
+
+		, start: function(){
+			this.start = Date.now();
+			this._update();
+		}
+
+		, stop: function(){
+
+		}
+
+		, reset: function(){
+
+		}
+
+		, _update: function(){
+			console.log("update");
+			this.timer = setTimeout($.proxy(this._update, this), 100);
+		}
+
+		, destroy: function(){
+			this.timer && clearTimeout (this.timer);
+		}
+	}
+
+
+
+	/* ROTELLA PLUGIN DEFINITION
+	* ========================= */
+
+	var old = $.fn.rotella
+
+	$.fn.rotella = function ( option ) {
+		return this.each(function () {
+			var $this = $(this)
+			, data = $this.data('rotella')
+			, options = typeof option == 'object' && option
+			if (!data) $this.data('rotella', (data = new Rotella(this, options)))
+			if (typeof option == 'string') data[option]()
+		})
+	}
+
+	$.fn.rotella.Constructor = Rotella
+
+	$.fn.rotella.defaults = {
+		time: 5000 //Time for a full loop in ms
+		, show: "time" //Show time or percentage
+		, starting: 0
+		, sprite: "loader.png"
+		, width: 50
+		, height: 50
+	}
+
+
+	/* ROTELLA NO CONFLICT
+	* =================== */
+
+	$.fn.rotella.noConflict = function () {
+		$.fn.rotella = old
+		return this
+	}
+
+}(window.jQuery);
