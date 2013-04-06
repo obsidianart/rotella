@@ -68,9 +68,18 @@ module.exports = function(grunt) {
         tasks: ['jshint:test', 'qunit']
       },
     },
-    mocha: {
-      gruntfile: {
-        src: 'Gruntfile.js'
+    karma: {
+      options: {
+        configFile: 'karma.conf.js',
+        runnerPort: 9999,
+        browsers: ['Chrome', 'Firefox']
+      },
+      continuous: {
+        singleRun: true,
+        browsers: ['PhantomJS']
+      },
+      dev: {
+        reporters: 'dots'
       }
     }
   });
@@ -81,8 +90,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-mocha');
 
+  grunt.registerTask('dev', ['karma:dev']);
+
+  grunt.registerTask('test', ['karma:continuous']);
   // Default task.
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
 

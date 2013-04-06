@@ -1,12 +1,6 @@
-/*
-* rotella v0.1
+/*! Rotella - v0.1.0 - 2013-04-06
 * https://github.com/obsidianart/rotella
-*
-*
-* Copyright (c) 2013 Cesare Naldi, Stefano Solinas
-* Licensed under the MIT license.
-*/
-
+* Copyright (c) 2013 ; Licensed MIT */
 !function ($) {
 
 	"use strict"; // jshint ;_;

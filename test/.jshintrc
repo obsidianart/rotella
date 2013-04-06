@@ -11,6 +11,9 @@
   "boss": true,
   "eqnull": true,
   "browser": true,
+  "expr": true,
+  "asi": true,
+  "unused": false,
   "predef": [
     "jQuery",
     "QUnit",
@@ -27,6 +30,9 @@
     "notDeepEqual",
     "strictEqual",
     "notStrictEqual",
-    "throws"
+    "throws",
+    "chai",
+    "describe",
+    "it"
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "curly": true,
+  "curly": false,
   "eqeqeq": true,
-  "immed": true,
+  "immed": false,
   "latedef": true,
   "newcap": true,
   "noarg": true,
@@ -11,13 +11,13 @@
   "predef": ["jQuery"],
 
   "validthis": true,
-  "laxcomma" : true,
-  "laxbreak" : true,
-  "browser"  : true,
-  "eqnull"   : true,
-  "debug"    : true,
-  "devel"    : true,
-  "boss"     : true,
-  "expr"     : true,
-  "asi"      : true
+  "laxcomma": true,
+  "laxbreak": true,
+  "browser": true,
+  "eqnull": true,
+  "debug": true,
+  "devel": true,
+  "boss": true,
+  "expr": true,
+  "asi": true
 }
